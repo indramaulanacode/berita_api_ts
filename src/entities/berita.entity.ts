@@ -25,7 +25,7 @@ export class Berita {
   @Column()
   author_id: number;
 
-  @Column({ type: 'enum', enum: ['draft', 'publish'], default: 'draft' })
+  @Column({ length: 50, default: 'draft' })
   status: string;
 
   @Column({ default: 0 })

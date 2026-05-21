@@ -53,6 +53,32 @@ let UsersService = class UsersService {
         const user = await this.findOne(id);
         await this.usersRepository.remove(user);
     }
+    async getUserDatabases(id) {
+        const user = await this.usersRepository.findOne({
+            where: { id },
+            relations: ['berita'],
+        });
+        if (!user) {
+            throw new common_1.NotFoundException(`User with ID ${id} not found`);
+        }
+        return {
+            userId: user.id,
+            userName: user.name,
+            email: user.email,
+            role: user.role,
+            databases: {
+                articles: {
+                    count: user.berita.length,
+                    data: user.berita,
+                },
+                summary: {
+                    totalArticles: user.berita.length,
+                    publishedArticles: user.berita.filter((b) => b.status === 'publish').length,
+                    draftArticles: user.berita.filter((b) => b.status === 'draft').length,
+                },
+            },
+        };
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

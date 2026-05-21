@@ -45,7 +45,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Berita.prototype, "author_id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'enum', enum: ['draft', 'publish'], default: 'draft' }),
+    (0, typeorm_1.Column)({ length: 50, default: 'draft' }),
     __metadata("design:type", String)
 ], Berita.prototype, "status", void 0);
 __decorate([

@@ -9,5 +9,6 @@ export declare class UsersService {
     findOne(id: number): Promise<User>;
     update(id: number, updateUserDto: UpdateUserDto): Promise<User>;
     remove(id: number): Promise<void>;
+    getUserDatabases(id: number): Promise<any>;
 }
 //# sourceMappingURL=users.service.d.ts.map
