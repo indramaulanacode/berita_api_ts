@@ -9,7 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_config_1 = require("./config/typeorm.config");
 const users_module_1 = require("./modules/users.module");
 const kategori_module_1 = require("./modules/kategori.module");
 const berita_module_1 = require("./modules/berita.module");
@@ -19,7 +18,18 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig),
+            typeorm_1.TypeOrmModule.forRootAsync({
+                useFactory: () => ({
+                    type: process.env.DB_TYPE,
+                    host: process.env.DB_HOST,
+                    port: parseInt(process.env.DB_PORT),
+                    username: process.env.DB_USERNAME,
+                    password: process.env.DB_PASSWORD,
+                    database: process.env.DB_NAME,
+                    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+                    synchronize: true,
+                }),
+            }),
             users_module_1.UsersModule,
             kategori_module_1.KategoriModule,
             berita_module_1.BeritaModule,

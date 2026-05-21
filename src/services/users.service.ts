@@ -6,6 +6,9 @@ import { CreateUserDto, UpdateUserDto } from '../dtos';
 
 @Injectable()
 export class UsersService {
+  getUserDatabases(id: number): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
@@ -50,34 +53,5 @@ export class UsersService {
   async remove(id: number): Promise<void> {
     const user = await this.findOne(id);
     await this.usersRepository.remove(user);
-  }
-
-  async getUserDatabases(id: number): Promise<any> {
-    const user = await this.usersRepository.findOne({
-      where: { id },
-      relations: ['berita'],
-    });
-
-    if (!user) {
-      throw new NotFoundException(`User with ID ${id} not found`);
-    }
-
-    return {
-      userId: user.id,
-      userName: user.name,
-      email: user.email,
-      role: user.role,
-      databases: {
-        articles: {
-          count: user.berita.length,
-          data: user.berita,
-        },
-        summary: {
-          totalArticles: user.berita.length,
-          publishedArticles: user.berita.filter((b) => b.status === 'publish').length,
-          draftArticles: user.berita.filter((b) => b.status === 'draft').length,
-        },
-      },
-    };
   }
 }
