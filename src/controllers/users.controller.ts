@@ -34,4 +34,9 @@ export class UsersController {
   remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.usersService.remove(id);
   }
+
+  @Get(':id/databases')
+  getUserDatabases(@Param('id', ParseIntPipe) id: number): Promise<any> {
+    return this.usersService.getUserDatabases(id);
+  }
 }

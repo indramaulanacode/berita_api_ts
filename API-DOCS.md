@@ -107,6 +107,51 @@ GET /users/1
 
 ---
 
+### Get User Databases
+**GET** `/users/:id/databases`
+
+**Example:**
+```
+GET /users/1/databases
+```
+
+**Response (200):**
+```json
+{
+  "userId": 1,
+  "userName": "John Doe",
+  "email": "john@example.com",
+  "role": "admin",
+  "databases": {
+    "articles": {
+      "count": 5,
+      "data": [
+        {
+          "id": 1,
+          "judul": "Breaking News Title",
+          "slug": "breaking-news-title",
+          "isi": "This is the full article content...",
+          "gambar": "https://example.com/image.jpg",
+          "kategori_id": 1,
+          "author_id": 1,
+          "status": "publish",
+          "views": 42,
+          "created_at": "2025-05-20T13:50:00.000Z",
+          "updated_at": "2025-05-20T13:50:00.000Z"
+        }
+      ]
+    },
+    "summary": {
+      "totalArticles": 5,
+      "publishedArticles": 3,
+      "draftArticles": 2
+    }
+  }
+}
+```
+
+---
+
 ## 📂 Categories (Kategori) Endpoints
 
 ### Create Category
@@ -360,6 +405,11 @@ curl -X PUT http://localhost:3000/berita/1 \
 ### Delete a user
 ```bash
 curl -X DELETE http://localhost:3000/users/1
+```
+
+### Get user databases/data
+```bash
+curl http://localhost:3000/users/1/databases
 ```
 
 ---
