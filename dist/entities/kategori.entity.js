@@ -21,7 +21,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ length: 255 }),
     __metadata("design:type", String)
-], Kategori.prototype, "nama", void 0);
+], Kategori.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)({ length: 255, unique: true }),
     __metadata("design:type", String)

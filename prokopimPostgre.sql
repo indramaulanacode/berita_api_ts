@@ -9,7 +9,7 @@ CREATE TYPE role_enum AS ENUM ('admin', 'penulis');
 -- ========================
 CREATE TABLE kategori (
   id SERIAL PRIMARY KEY,
-  nama VARCHAR(100),
+  name VARCHAR(100),
   slug VARCHAR(100) UNIQUE
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE kategori (
 -- ========================
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  nama VARCHAR(100),
+  name VARCHAR(100),
   email VARCHAR(100) UNIQUE,
   password VARCHAR(255),
   role role_enum DEFAULT 'penulis',
@@ -54,7 +54,7 @@ CREATE TABLE berita (
 CREATE TABLE komentar (
   id SERIAL PRIMARY KEY,
   berita_id INTEGER,
-  nama VARCHAR(100),
+  name VARCHAR(100),
   isi TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 

@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `kategori`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `kategori` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `komentar`;
 CREATE TABLE `komentar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `berita_id` int DEFAULT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isi` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` enum('admin','penulis') COLLATE utf8mb4_unicode_ci DEFAULT 'penulis',

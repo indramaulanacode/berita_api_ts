@@ -17,7 +17,7 @@ exports.CreateKategoriDto = CreateKategoriDto;
 __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateKategoriDto.prototype, "nama", void 0);
+], CreateKategoriDto.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
@@ -29,7 +29,7 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], UpdateKategoriDto.prototype, "nama", void 0);
+], UpdateKategoriDto.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),

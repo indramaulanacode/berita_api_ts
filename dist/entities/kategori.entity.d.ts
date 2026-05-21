@@ -1,6 +1,6 @@
 export declare class Kategori {
     id: number;
-    nama: string;
+    name: string;
     slug: string;
     created_at: Date;
     updated_at: Date;
