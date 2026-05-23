@@ -6,7 +6,7 @@ export class Kategori {
   id: number;
 
   @Column({ length: 255 })
-  name: string;
+  nama: string;
 
   @Column({ length: 255, unique: true })
   slug: string;
