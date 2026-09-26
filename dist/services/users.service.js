@@ -18,6 +18,9 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("../entities/user.entity");
 let UsersService = class UsersService {
+    getUserDatabases(id) {
+        throw new Error('Method not implemented.');
+    }
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
@@ -52,32 +55,6 @@ let UsersService = class UsersService {
     async remove(id) {
         const user = await this.findOne(id);
         await this.usersRepository.remove(user);
-    }
-    async getUserDatabases(id) {
-        const user = await this.usersRepository.findOne({
-            where: { id },
-            relations: ['berita'],
-        });
-        if (!user) {
-            throw new common_1.NotFoundException(`User with ID ${id} not found`);
-        }
-        return {
-            userId: user.id,
-            userName: user.name,
-            email: user.email,
-            role: user.role,
-            databases: {
-                articles: {
-                    count: user.berita.length,
-                    data: user.berita,
-                },
-                summary: {
-                    totalArticles: user.berita.length,
-                    publishedArticles: user.berita.filter((b) => b.status === 'publish').length,
-                    draftArticles: user.berita.filter((b) => b.status === 'draft').length,
-                },
-            },
-        };
     }
 };
 exports.UsersService = UsersService;
