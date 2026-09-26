@@ -1,7 +1,7 @@
 import { Berita } from './berita.entity';
 export declare class User {
     id: number;
-    name: string;
+    nama: string;
     email: string;
     password: string;
     role: string;

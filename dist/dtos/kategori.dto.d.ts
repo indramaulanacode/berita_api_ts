@@ -1,9 +1,9 @@
 export declare class CreateKategoriDto {
-    name: string;
+    nama: string;
     slug: string;
 }
 export declare class UpdateKategoriDto {
-    name?: string;
+    nama?: string;
     slug?: string;
 }
 //# sourceMappingURL=kategori.dto.d.ts.map
